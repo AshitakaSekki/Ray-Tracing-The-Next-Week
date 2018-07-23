@@ -9,6 +9,7 @@ public:
 
 	vec3 origin() const { return A; }
 	vec3 direction() const { return B; }
+	// shutter interval time is basic of motion blur
 	float time() const { return _time; }
 	vec3 point_at_parameter(float t) const { return A + t * B; }
 

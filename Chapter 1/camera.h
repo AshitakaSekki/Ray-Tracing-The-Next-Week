@@ -17,8 +17,8 @@ class camera {
 public:
 	// new:  add t0 anf t1
 	camera(vec3 lookfrom, vec3 lookat, vec3 vup, float vfov, float aspect, float aperture, float focus_dist,float t0, float t1) { //vfov is top to bottom in degrees
-		time0 = t0;
-		time1 = t1;
+		time0 = t0; //shutter open
+		time1 = t1; //shutter close
 		lens_radius = aperture / 2;
 		float theta = vfov * M_PI / 180;
 		float half_height = tan(theta / 2);

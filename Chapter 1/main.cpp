@@ -79,7 +79,8 @@ int main() {
 	vec3 lookat(0, 0, 0);
 	float dist_to_focus = 10.0;
 	float aperture = 0.0;
-
+	
+	// add shutter time
 	camera cam(lookfrom, lookat, vec3(0, 1, 0), 20, float(nx) / float(ny), aperture, dist_to_focus, 0.0, 1.0);
 	for (int j = ny - 1; j >= 0; j--) {
 		for(int i = 0; i < nx; i++) {
