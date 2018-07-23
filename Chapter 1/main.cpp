@@ -30,6 +30,7 @@ vec3 color(const ray& r, hitable *world, int depth) {
 	}
 }
 
+// creat a random scene
 hitable *random_scene() {
 	int n = 50000;
 	hitable **list = new hitable *[n + 1];
@@ -64,6 +65,10 @@ int main() {
 	int ny = 100;
 	//sample number
 	int ns = 100;
+
+	// the number of progress
+	int progress = 0;
+
 	std::ofstream ppmfile;
 	ppmfile.open("test.ppm");
 	ppmfile << "P3\n" << nx << " " << ny << "\n255\n";
@@ -87,6 +92,7 @@ int main() {
 
 				col += color(r, world, 0);
 			}
+			
 			col /= float(ns);
 			col = vec3(sqrt(col[0]), sqrt(col[1]), sqrt(col[2]));
 			int ir = int(255.99*col.r());
@@ -94,6 +100,10 @@ int main() {
 			int ib = int(255.99*col.b());
 
 			ppmfile << ir << " " << ig << " " << ib << "\n";
+
+			// show the progress
+			std::cout << "\r" << ++progress << "/20000\t" << progress / 200 << "%";
+			std::cout.flush();
 		}
 	}
 }
